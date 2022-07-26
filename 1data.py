@@ -2,7 +2,7 @@ from urllib import response
 import requests
 import time
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def datetotimestamp(date):
     time_tuple = date.timetuple()
@@ -14,11 +14,12 @@ def timestamptodate(timestamp):
 
 
 date = datetime.today()
-start = datetotimestamp(datetime(2022,7,11))
+# start = datetotimestamp(datetime(2022,7,11))
 
 # start = datetotimestamp(datetime.today())
 
 end = datetotimestamp(datetime.today())
+start =datetotimestamp( datetime.today()-timedelta(days = 1))
 stocks = ['3MINDIA',
 'ABB',
 'ACC',
@@ -152,9 +153,6 @@ stocks = ['3MINDIA',
 'ELGIEQUIP',
 'EMAMILTD',
 'ENDURANCE',
-'EQUITAS',
-'EQUITASBNK',
-'ERIS',
 'ESCORTS',
 'EXIDEIND',
 'NYKAA',
@@ -173,7 +171,6 @@ stocks = ['3MINDIA',
 'GLAXO',
 'GLS',
 'GLENMARK',
-'GOCOLORS',
 'GODFRYPHLP',
 'GODREJAGRO',
 'GODREJCP',
@@ -201,7 +198,6 @@ stocks = ['3MINDIA',
 'HLEGLAS',
 'HAPPSTMNDS',
 'HATHWAY',
-'HATSUN',
 'HAVELLS',
 'HEMIPROP',
 'HEROMOTOCO',
@@ -225,8 +221,6 @@ stocks = ['3MINDIA',
 'IDBI',
 'IDFCFIRSTB',
 'IFBIND',
-'IIFL',
-'IIFLWAM',
 'IRB',
 'ITI',
 'INDIACEM',
@@ -311,7 +305,6 @@ stocks = ['3MINDIA',
 'MPHASIS',
 'MCX',
 'MUTHOOTFIN',
-'NATCOPHARM',
 'NBCC',
 'NCC',
 'NHPC',
@@ -360,7 +353,6 @@ stocks = ['3MINDIA',
 'QUESS',
 'RBLBANK',
 'RECLTD',
-'RHIM',
 'RITES',
 'RADICO',
 'RVNL',
@@ -388,7 +380,6 @@ stocks = ['3MINDIA',
 'SFL',
 'SHILPAMED',
 'SCI',
-'SHREECEM',
 'RENUKA',
 'SHRIRAMCIT',
 'SRTRANSFIN',
@@ -441,7 +432,6 @@ stocks = ['3MINDIA',
 'NIACL',
 'RAMCOCEM',
 'THERMAX',
-'THYROCARE',
 'TIMKEN',
 'TITAN',
 'TORNTPHARM',
@@ -468,8 +458,6 @@ stocks = ['3MINDIA',
 'VEDL',
 'VENKEYS',
 'VIJAYA',
-'VINATIORGA',
-'IDEA',
 'VOLTAS',
 'WELCORP',
 'WELSPUNIND',

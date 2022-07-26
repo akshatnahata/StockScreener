@@ -1,8 +1,8 @@
 import telebot
 import os
 import pandas as pd
-
-TOKEN = '2136516264:AAFR0aaWCNxDIXHA4ybHLGN5nnLxdeuU2q0'
+TOKEN = os.environ["TOKEN"]
+CHAT = os.environ["CHAT"]
 
 tb = telebot.TeleBot(TOKEN)
 # tb.send_message(chatid, message)
@@ -16,7 +16,7 @@ base_url = "https://api.telegram.org/bot2136516264:AAFR0aaWCNxDIXHA4ybHLGN5nnLxd
 my_file = open("stocksToTrade.csv", "rb")
 
 parameters = {
-    "chat_id" : "1090865239",
+    "chat_id" : CHAT,
     "caption" : "Here is a list for intraday stocks for you. Copy and Paste them in TradingView."
 }
 
@@ -39,5 +39,5 @@ s= ""
 for item in list:
     s+=item+" "
 
-tb.send_message(1090865239,s)    
+tb.send_message(int(CHAT),s)    
 

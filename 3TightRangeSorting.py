@@ -10,7 +10,7 @@ stocks = pd.read_csv('stocklist.csv')
 df = pd.DataFrame(stocks)
 df = df.iloc[: , 1:]
 arr = df["0"].to_numpy()
-y = 26
+y = 2
 # print(arr)
 for stock in arr:
 

@@ -7,7 +7,9 @@ import concurrent.futures
 import pandas as pd
 import os
 import numpy as np
-TOKEN = '2136516264:AAFR0aaWCNxDIXHA4ybHLGN5nnLxdeuU2q0'
+
+TOKEN = os.environ["TOKEN"]
+CHAT = os.environ["CHAT"]
 
 tb = telebot.TeleBot(TOKEN)
 
@@ -60,17 +62,19 @@ previousVol = 0
 while True:
     stocks_data = (get_multiple_stocks_data(symbols))
     for stock in symbols:
-        print(stock)
+        # print(stock)
         todayhigh = stocks_data[stock]["High"]
         todaylow =  stocks_data[stock]["Low"]
         currentPrice = stocks_data[stock]["Ltp"]
         perc = 0.1*currentPrice/100
         if(math.isclose(currentPrice, todayhigh, abs_tol = perc)):
-            tb.send_message(1090865239,"Buy "+stock)
+            print(stock)
+            tb.send_message(CHAT,"Buy "+stock)
             index= np.argwhere(symbols==stock)
             symbols = np.delete(symbols, index)
         if( math.isclose(currentPrice, todaylow, abs_tol = perc)):
-            tb.send_message(1090865239,"Short "+stock)
+            print(stock)
+            tb.send_message(CHAT,"Short "+stock)
             index= np.argwhere(symbols==stock)
             symbols = np.delete(symbols, index)
              
